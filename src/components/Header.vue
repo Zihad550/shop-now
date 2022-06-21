@@ -1,12 +1,10 @@
 <template>
   <div
     style="background: #eff0f3"
-    class="h-20 flex items-center justify-center"
+    class="h-20 flex items-center justify-between px-5"
   >
-    <div class="hidden"></div>
-
     <!-- large screen menu start -->
-    <div class="hidden md:flex items-center">
+    <div class="hidden md:flex items-center lg:mx-auto">
       <div
         class="mx-3"
         v-for="navigation in navigations"
@@ -66,6 +64,15 @@
       </div>
     </div>
     <!-- small screen menu end -->
+
+    <!-- authentication -->
+    <router-link
+      to="/login"
+      type="button"
+      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+    >
+      Login
+    </router-link>
   </div>
 </template>
 
@@ -81,9 +88,9 @@ export default {
   data() {
     return {
       navigations: [
+        { name: "Shop Now", to: "/", label: "logo" },
         { name: "Product", to: "/" },
         { name: "Features", to: "/" },
-        { name: "Shop Now", to: "/", label: "logo" },
         { name: "Marketplace", to: "/" },
         { name: "Company", to: "/" },
       ],
