@@ -1,5 +1,6 @@
 <template>
-  <div class="container mx-auto">
+  <div class="container mx-auto mt-10">
+    <Title>Top Categories</Title>
     <div
       v-if="categories"
       class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3"
@@ -22,8 +23,12 @@
 
 <script>
 import axios from "axios";
+import Title from "../../../components/Title.vue";
 export default {
   name: "Categories",
+  components: {
+    Title,
+  },
   data() {
     return {
       categories: null,

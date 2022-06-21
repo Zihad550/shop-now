@@ -1,18 +1,24 @@
 <template>
+  <!-- hero section -->
   <Hero />
-  <Title>Top Categories</Title>
+
+  <!-- top catagories section -->
+
   <Categories />
+
+  <!-- footer section -->
+  <Footer />
 </template>
 
 <script>
-import Title from "@/components/Title.vue";
 import Categories from "./Categories/Categories.vue";
+import Footer from "./Footer/Footer.vue";
 import Hero from "./Hero/Hero.vue";
 
 export default {
   components: {
     Categories,
-    Title,
+    Footer,
     Hero,
   },
 };
