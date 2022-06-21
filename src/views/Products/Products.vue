@@ -10,6 +10,7 @@
       v-for="product in products"
       style="max-width: 300px"
       :key="product._id"
+      @click="openModal(product)"
     >
       <img :src="product.src" alt="" />
       <!-- body -->
@@ -23,16 +24,27 @@
     </div>
   </div>
   <div v-else>...loading</div>
+  <ProductDetails
+    :showModal="showModal"
+    @close="closeModal"
+    :product="product"
+  />
 </template>
 <script>
 import axios from "axios";
+import ProductDetails from "./ProductDetails/ProductDetails.vue";
 
 export default {
   name: "Products",
+  components: {
+    ProductDetails,
+  },
 
   data() {
     return {
       products: null,
+      showModal: false,
+      product: null,
     };
   },
 
@@ -40,6 +52,16 @@ export default {
     category: {
       type: String,
       required: true,
+    },
+  },
+
+  methods: {
+    openModal(product) {
+      this.showModal = true;
+      this.product = product;
+    },
+    closeModal() {
+      this.showModal = false;
     },
   },
 
